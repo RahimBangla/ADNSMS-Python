@@ -1,66 +1,40 @@
-.. image:: https://img.shields.io/pypi/v/sslwireless-sms?color=yellow&label=version
-    :target: https://pypi.org/project/sslwireless-sms/0.0.3
- 
+# AdnSms Sms Api for Python / Django / Flask
+A lightweight python API for adnsms message sending. Supports Python Project. While this pacakge can be used with Django/Flask, there is also a package specific to Django with more features, queue support that can be found here - [ADN SMS Python](https://github.com/rahimbangla/ADNSMS-Python)
 
-.. image:: https://pepy.tech/badge/sslwireless-sms 
-    :target: https://pypi.org/project/sslwireless-sms
+## Usage
+- Clone the repository.
+- Require the class and create instance to access its functions.
+- Or install with `pip install ADN-sms`
 
-SSLWireless SMS Api Wrapper for Python
-======================================
+## Example
+A simple single sms send example.
+```python
+from ADNSMS import ADNSMS
 
-A simple python wrapper for sslwireless sms api.
-
-Requirements
-------------
-
--  requests
--  xmltodict
-
-Usage
------
-
--  Clone the repository
--  Install the dependencies with ``pip install -r requirements.txt`` or
-   ``pip install requests xmltodict``
--  Import the class and create instance to access its functions.
-Or
----
--  Install the package with ``pip install sslwireless-sms``
-
-Example
--------
-
-.. code:: python
-
-    from sslwireless_sms import SSLWirelessSMS
-
-    # username, password and sid provided by sslwireless
-    # A fourth parameter 'decode_response' can be passed to determine the return type of data
-    # By default 'decode_response' is set to 'False' so it will return json data as result
-    # Set 'decode_response' to 'True' to get python dict as result
-    SSLWirelessSMS = SSLWirelessSMS('username', 'password', 'sid')
+    # api_key, api_secret provided by ADNSMS
+    ADNSMS = ADNSMS('api_key', 'api_secret')
     # You can change the api url if needed. i.e.
-    # SSLWirelessSMS.url = 'new_url'
-    result = SSLWirelessSMS.send('123456789','This is a test message.')
+    # ADNSMS.url = 'new_url'
+    result = ADNSMS.send('123456789','This is a test message.')
 
     print(result)
+```
 
-Output
-------
 
-The default output will always be in JSON format unless you set
-``decode_response`` to be ``True``.
 
-.. code:: javascript
+## Output
+Success output for above example.
+```javascript
+{				
+  "request_type": "single_sms",
+  "campaign_uid": "CXXXXXXXXXXXXXXXX",
+  "sms_uid": "SXXXXXXXXXXXXXXXX",
+  "invalid_numbers": [],
+  "api_response_code": 200,
+  "api_response_message": "SUCCESS" 
+}
+```
 
-    {
-      "status": "success", // or "failed"
-      "result": "sms sent", // or "invalid mobile or text" or "invalid mobile" or "invalid credentials"
-      "phone": "123456789", // number to send message
-      "message": "This is a test message.", // message sent
-      "reference_no": "randomly_generated_unique_no", // client generated reference no
-      "ssl_reference_no": "returned_sslwirless_reference_no", // api generated reference no
-      "datetime": "2018-02-07 01:35AM" // datetime of process
-    }
-
+## More Info
+You can find a full documentation with more details in `docs` folder. 
 
