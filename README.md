@@ -1,4 +1,4 @@
-# AdnSms Sms Api for Python / Django / Flask
+#ADN SMS Api for Python / Django / Flask
 A lightweight python API for adnsms message sending. Supports Python Project. While this pacakge can be used with Django/Flask, there is also a package specific to Django with more features, queue support that can be found here - [ADN SMS Python](https://github.com/rahimbangla/ADNSMS-Python)
 
 ## Usage
