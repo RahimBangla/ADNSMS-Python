@@ -148,7 +148,7 @@ class ADNSMS:
 
 # This Check Campaign Status
 
-    def checkBalance(self, campaignUid):
+    def checkCampaign(self, campaignUid):
         '''
         Send the message to desired number
         :param campaignUid:
@@ -168,7 +168,7 @@ class ADNSMS:
 
 # This Check SMS Status
 
-    def checkBalance(self, smsUid):
+    def checkSms(self, smsUid):
         '''
         Send the message to desired number
         :param smsUid:
